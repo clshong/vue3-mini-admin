@@ -1,13 +1,20 @@
 <template>
-  <div class="content">
-    <h1>测试</h1>
-  </div>
+  <div>测试</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { login, getInfo } from '@/api/user/index'
+import { onMounted } from 'vue'
 
-<style scoped>
-.content {
-  width: 100%;
-}
-</style>
+onMounted(async () => {
+  // const res = await login({
+  //   username: 'admin',
+  //   password: '111111',
+  // })
+  const userInfo = await getInfo()
+  // console.log(res)
+  console.log(userInfo)
+})
+</script>
+
+<style scoped></style>
