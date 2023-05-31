@@ -4,7 +4,8 @@ export interface LoginFrom {
 }
 
 interface DataType {
-  tonken: string
+  token?: string
+  message?: string
 }
 
 export interface LoginRes {

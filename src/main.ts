@@ -11,6 +11,10 @@ import 'virtual:svg-icons-register'
 
 import '@/styles/index.scss'
 
+import router from './router'
+
+import pinia from './store'
+
 // 获取应用实例对象
 const app = createApp(App)
 
@@ -22,4 +26,6 @@ app
     locale: zhCn,
   })
   .use(GloablComponent)
+  .use(router)
+  .use(pinia)
   .mount('#app')
