@@ -15,9 +15,10 @@ export const constantRoute = [
     component: Layout,
     redirect: '/dashboard',
     meta: {
-      title: 'Layout',
+      title: '',
       hidden: false,
-      icon: 'HomeFilled',
+      icon: '',
+      showTab: false,
     },
     children: [
       {
@@ -28,6 +29,7 @@ export const constantRoute = [
           title: '首页',
           hidden: false,
           icon: 'HomeFilled',
+          showTab: true,
         },
       },
     ],
@@ -37,9 +39,10 @@ export const constantRoute = [
     name: 'Screen',
     component: Layout,
     meta: {
-      title: 'Screen',
+      title: '',
       hidden: false,
-      icon: 'HomeFilled',
+      icon: '',
+      showTab: false,
     },
     children: [
       {
@@ -50,6 +53,7 @@ export const constantRoute = [
           title: '数据大屏',
           hidden: false,
           icon: 'HomeFilled',
+          showTab: true,
         },
       },
     ],
@@ -58,11 +62,12 @@ export const constantRoute = [
     path: '/privileges',
     name: 'Privileges',
     component: Layout,
-    redirect: '/permission',
+    redirect: '/permission/permission',
     meta: {
       title: '权限管理',
       hidden: false,
       icon: 'HomeFilled',
+      showTab: false,
     },
     children: [
       {
@@ -73,6 +78,7 @@ export const constantRoute = [
           title: '菜单管理',
           hidden: false,
           icon: 'HomeFilled',
+          showTab: true,
         },
       },
       {
@@ -83,6 +89,7 @@ export const constantRoute = [
           title: '用户管理',
           hidden: false,
           icon: 'HomeFilled',
+          showTab: true,
         },
       },
       {
@@ -93,6 +100,7 @@ export const constantRoute = [
           title: '角色管理',
           hidden: false,
           icon: 'HomeFilled',
+          showTab: true,
         },
       },
     ],

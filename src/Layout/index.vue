@@ -26,6 +26,7 @@
       class="layout-conter"
       :class="{ fold: useSetting.fold ? true : false }"
     >
+      <!-- <Tabs /> -->
       <Main />
     </div>
   </div>
@@ -48,7 +49,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .layout-container {
   width: 100%;
   height: 100vh;
@@ -95,5 +96,9 @@ export default {
       width: calc(100vw - $base-menu-min-width);
     }
   }
+}
+.el-popper.is-pure {
+  background: $base-menu-background;
+  margin-left: -20px;
 }
 </style>
