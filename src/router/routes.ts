@@ -50,7 +50,7 @@ export const constantRoute = [
         name: 'index',
         component: () => import('@/views/screen/index.vue'),
         meta: {
-          title: '数据大屏',
+          title: '轮播图',
           hidden: false,
           icon: 'HomeFilled',
           showTab: true,
