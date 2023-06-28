@@ -20,6 +20,8 @@ const app = createApp(App)
 
 import GloablComponent from '@/plugins'
 
+import 'virtual:uno.css'
+
 // 将应用挂载到挂载点上
 app
   .use(ElementPlus, {

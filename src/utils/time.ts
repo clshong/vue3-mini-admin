@@ -12,3 +12,19 @@ export const hoursTip = () => {
   }
   return HoursTip
 }
+
+export const currentTime = () => {
+  const date = new Date()
+  const Y = date.getFullYear()
+  let M: any = date.getMonth() + 1
+  M = M < 10 ? '0' + M : M
+  let D: any = date.getDate()
+  D = D < 10 ? '0' + D : D
+  let H: any = date.getHours()
+  H = H < 10 ? '0' + H : H
+  let F: any = date.getMinutes()
+  F = F < 10 ? '0' + F : F
+  let S: any = date.getSeconds()
+  S = S < 10 ? '0' + S : S
+  return Y + '-' + M + '-' + D + ' ' + H + ':' + F + ':' + S
+}

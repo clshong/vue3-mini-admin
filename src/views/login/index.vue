@@ -47,8 +47,9 @@ import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { User, Lock } from '@element-plus/icons-vue'
 import { useUserStore } from '@/store/modules/user'
-import type { ElNotification, FormRules } from 'element-plus'
 import { hoursTip } from '@/utils/time'
+//@ts-expect-error忽略当前文件ts类型的检测否则有红色提示(打包会失败)
+import { ElNotification, FormRules } from 'element-plus'
 
 const userStore = useUserStore()
 const router = useRouter()

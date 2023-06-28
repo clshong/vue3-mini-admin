@@ -34,29 +34,40 @@ export const constantRoute = [
       },
     ],
   },
+  // {
+  //   path: '/screen',
+  //   name: 'Screen',
+  //   component: Layout,
+  //   meta: {
+  //     title: '',
+  //     hidden: false,
+  //     icon: '',
+  //     showTab: false,
+  //   },
+  //   children: [
+  //     {
+  //       path: '/screen/index',
+  //       name: 'index',
+  //       component: () => import('@/views/screen/index.vue'),
+  //       meta: {
+  //         title: '数据大屏',
+  //         hidden: false,
+  //         icon: 'HomeFilled',
+  //         showTab: true,
+  //       },
+  //     },
+  //   ],
+  // },
   {
-    path: '/screen',
-    name: 'Screen',
-    component: Layout,
+    path: '/screen/index',
+    name: 'index',
+    component: () => import('@/views/screen/index.vue'),
     meta: {
-      title: '',
+      title: '数据大屏',
       hidden: false,
-      icon: '',
-      showTab: false,
+      icon: 'HomeFilled',
+      showTab: true,
     },
-    children: [
-      {
-        path: '/screen/index',
-        name: 'index',
-        component: () => import('@/views/screen/index.vue'),
-        meta: {
-          title: '数据大屏',
-          hidden: false,
-          icon: 'HomeFilled',
-          showTab: true,
-        },
-      },
-    ],
   },
   {
     path: '/privileges',

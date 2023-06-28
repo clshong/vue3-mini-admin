@@ -7,11 +7,13 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 //mock插件提供方法
 import { viteMockServe } from 'vite-plugin-mock'
 
+import UnoCSS from 'unocss/vite'
+
 export default defineConfig(({ command, mode }) => {
   //获取各种环境下的对应的变量
   const env = loadEnv(mode, process.cwd())
   return {
-    publicPath: 'https://gitee.com/jch1011/guiguzhenxuan',
+    publicPath: './',
     plugins: [
       vue(),
       createSvgIconsPlugin({
@@ -21,6 +23,7 @@ export default defineConfig(({ command, mode }) => {
       viteMockServe({
         localEnabled: command === 'serve', //保证开发阶段可以使用mock接口
       }),
+      UnoCSS(),
     ],
     resolve: {
       alias: {
