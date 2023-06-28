@@ -68,6 +68,20 @@ export const constantRoute = [
       icon: 'HomeFilled',
       showTab: true,
     },
+
+    children: [
+      {
+        path: '/screen/index',
+        name: 'index',
+        component: () => import('@/views/screen/index.vue'),
+        meta: {
+          title: '轮播图',
+          hidden: false,
+          icon: 'HomeFilled',
+          showTab: true,
+        },
+      },
+    ],
   },
   {
     path: '/privileges',
