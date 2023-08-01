@@ -60,28 +60,25 @@ export const constantRoute = [
   // },
   {
     path: '/screen/index',
-    name: 'index',
+    name: 'ceshi',
     component: () => import('@/views/screen/index.vue'),
+    meta: {
+      title: '数据大屏测试',
+      hidden: false,
+      icon: 'HomeFilled',
+      showTab: true,
+    },
+  },
+  {
+    path: '/dataScreen/index',
+    name: 'index',
+    component: () => import('@/views/dataScreen/index.vue'),
     meta: {
       title: '数据大屏',
       hidden: false,
       icon: 'HomeFilled',
       showTab: true,
     },
-
-    children: [
-      {
-        path: '/screen/index',
-        name: 'index',
-        component: () => import('@/views/screen/index.vue'),
-        meta: {
-          title: '轮播图',
-          hidden: false,
-          icon: 'HomeFilled',
-          showTab: true,
-        },
-      },
-    ],
   },
   {
     path: '/privileges',
