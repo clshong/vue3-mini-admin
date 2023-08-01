@@ -1,84 +1,96 @@
 <template>
-  <div class="box">
-    <div class="top">
-      <p class="title">年龄比例</p>
-      <p class="top-bg"></p>
+    <div class="box2">
+        <div class="title">
+            <p>年龄比例</p>
+            <img src="../../images/dataScreen-title.png" alt="">
+        </div>
+        <!-- 图形图标的容器 -->
+        <div class="charts" ref="charts"></div>
     </div>
-    <div class="charts" ref="charts"></div>
-  </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import * as echarts from 'echarts'
-const charts = ref()
-
+import { ref, onMounted } from 'vue';
+//引入echarts
+import * as echarts from 'echarts';
+let charts = ref();
+//组件挂载完毕初始化图形图标
 onMounted(() => {
-  let myecharts = echarts.init(charts.value)
-  myecharts.setOption({
-    tooltip: {
-      trigger: 'item',
-    },
-    legend: {
-      orient: 'vertical',
-      left: '80%',
-      top: 40,
-    },
-    series: [
-      {
-        name: 'Access From',
-        type: 'pie',
-        radius: ['40%', '70%'],
-        avoidLabelOverlap: false,
-        itemStyle: {
-          borderRadius: 10,
-          borderColor: '#fff',
-          borderWidth: 2,
+    let mychart = echarts.init(charts.value);
+    //设置配置项
+    let option = {
+        tooltip: {
+            trigger: 'item'
         },
-        label: {
-          show: true,
-          position: 'inside',
-          color: '#fff',
+        legend: {
+            right: 30,
+            top: 40,
+            orient: 'vertical',//图例组件方向的设置
+            textStyle: {
+                color: 'white',
+                fontSize: 14
+            }
         },
-        labelLine: {
-          show: false,
-        },
-        data: [
-          { value: 1048, name: '王者荣耀' },
-          { value: 735, name: '刺激战场' },
-          { value: 580, name: 'QQ飞车' },
-          { value: 484, name: '狼人杀' },
-          { value: 300, name: '泡泡堂' },
+        series: [
+            {
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                itemStyle: {
+                    borderRadius: 10,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    show: true,
+                    position: 'inside',
+                    color:'white'
+                },
+
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    { value: 1048, name: '军事' },
+                    { value: 735, name: '新闻' },
+                    { value: 580, name: '直播' },
+                    { value: 484, name: '娱乐' },
+                    { value: 300, name: '财经' }
+                ]
+            }
         ],
-      },
-    ],
-  })
-})
+        //调整图形图标的位置
+        grid: {
+            left: 0,
+            top: 0,
+            right: 0,
+            bottom: 0
+        }
+    };
+    mychart.setOption(option);
+});
 </script>
 
 <style scoped lang="scss">
-.box {
-  background: url(../../images/dataScreen-main-lb.png) no-repeat;
-  background-size: 100% 100%;
-  margin-top: 20px;
-  .top {
-    margin-left: 20px;
-    position: relative;
+.box2 {
+    width: 100%;
+    height: 100%;
+    background: url(../../images/dataScreen-main-cb.png) no-repeat;
+    background-size: 100% 100%;
+
     .title {
-      color: white;
-      font-size: 20px;
+        margin-left: 20px;
+
+        p {
+            color: white;
+            font-size: 20px;
+        }
     }
-    .top-bg {
-      width: 68px;
-      height: 7px;
-      background: url(../../images/dataScreen-title.png) no-repeat;
-      background-size: 100% 100%;
-      margin-top: 10px;
+
+    .charts {
+        height: 260px;
     }
-  }
-  .charts {
-    padding: 30px;
-    height: 300px;
-  }
+
 }
 </style>

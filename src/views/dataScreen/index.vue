@@ -446,6 +446,7 @@ const initCharts = (): void => {
 
 // 获取当前时间
 const { nowTime } = useTime()
+// eslint-disable-next-line no-undef
 let timer: NodeJS.Timer | null = null
 let time: Ref<string> = ref(nowTime.value)
 timer = setInterval(() => {
