@@ -15,6 +15,8 @@ import router from './router'
 
 import pinia from './store'
 
+import mUi from './components/index'
+
 // 获取应用实例对象
 const app = createApp(App)
 
@@ -30,4 +32,6 @@ app
   .use(GloablComponent)
   .use(router)
   .use(pinia)
-  .mount('#app')
+  .use(mUi)
+
+app.mount('#app')

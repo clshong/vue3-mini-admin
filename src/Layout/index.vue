@@ -52,7 +52,7 @@ export default {
 <style lang="scss">
 .layout-container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   .layout-slider {
     width: $base-menu-width;
     height: 100vh;
