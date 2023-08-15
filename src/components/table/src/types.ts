@@ -2,7 +2,7 @@ export interface TableOpions {
   // 表头
   lable: string
   // 字段名称
-  prop?: string
+  prop: string
   // 列宽度
   width?: string | number
   // 对齐方式
@@ -11,4 +11,6 @@ export interface TableOpions {
   slot?: string
   // 是否代表操作项
   action?: boolean
+  // 是否可编辑
+  editTable?: boolean
 }

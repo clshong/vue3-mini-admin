@@ -28,6 +28,19 @@ function createUserList() {
   ]
 }
 
+import Mock from 'mockjs' // 引入mockjs
+const Random = Mock.Random
+const dataList: any[] = [] // 用于接受生成数据的数组
+for (let i = 0; i < 101; i++) {
+  // 可自定义生成的个数
+  const template = {
+    date: Random.date(), // 生成一个随机日期,可加参数定义日期格式
+    name: Random.name(), // 生成姓名
+    address: Random.province(), // 生成地址
+  }
+  dataList.push(template)
+}
+
 export default [
   // 用户登录接口
   {
@@ -53,7 +66,7 @@ export default [
   {
     url: '/api/user/info',
     method: 'get',
-    response: (request) => {
+    response: (request: { headers: { token: any } }) => {
       //获取请求头携带token
       const token = request.headers.token
       //查看用户信息是否包含有次token用户
@@ -64,6 +77,35 @@ export default [
       }
       //如果有返回成功信息
       return { code: 200, data: { checkUser } }
+    },
+  },
+  // 获取用户信息
+  {
+    url: '/api/user/getInfo',
+    method: 'post',
+    response: ({ body }) => {
+      const info = body
+      const [index, size, total] = [
+        info.current,
+        info.pageSize,
+        dataList.length,
+      ]
+      const len = total / size
+      const totalPages =
+        len - parseInt(String(len)) > 0 ? parseInt(String(len)) + 1 : len
+      const newDataList = dataList.slice(index * size, (index + 1) * size)
+
+      return {
+        code: '200',
+        message: '获取成功',
+        data: {
+          current: index,
+          pageSize: size,
+          rows: newDataList,
+          total: total,
+          totalPages: totalPages,
+        },
+      }
     },
   },
 ]
